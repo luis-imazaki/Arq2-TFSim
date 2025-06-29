@@ -719,6 +719,15 @@ int sc_main(int argc, char *argv[])
             }
     });
 
+    bench_sub->append("Números iguais",[&](menu::item_proxy &ip){
+        string path = base_path + "/in/benchmarks/num_iguais/num_iguais.txt";       
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+        else
+            fila = true;
+    }); 
+
     vector<string> columns = {"#","Name","Busy","Op","Vj","Vk","Qj","Qk","A"}; 
     for(unsigned int i = 0 ; i < columns.size() ; i++)
     {
