@@ -1,0 +1,12 @@
+r1 = 1
+r2 = 78
+r3 = 0
+if(r1=r2){
+    GOTO 5 (DADD R0,R0,R0)
+}else{
+    M[r3] = r1
+    r3 += 1
+    r1 +=1
+    GOTO -4 (BEQ R1,R2,5)
+}
+END

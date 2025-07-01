@@ -1,0 +1,11 @@
+//pega os valores da memoria
+LD R1,0(R0)
+LD R2,1(R0)
+LD R3,3(R0)
+LD R4,4(R0)
+//soma o v1[0] + v2[0] e v1[1] + v2[1]
+DADD R5,R1,R3
+DADD R6,R2,R4
+//guarda o vetor resultante
+SD R5,6(R0)
+SD R6,7(R0)

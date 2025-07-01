@@ -719,14 +719,488 @@ int sc_main(int argc, char *argv[])
             }
     });
 
-    bench_sub->append("Números iguais",[&](menu::item_proxy &ip){
-        string path = base_path + "/in/benchmarks/num_iguais/num_iguais.txt";       
+    bench_sub->append("Soma vetor",[&](menu::item_proxy &ip){
+        string path = base_path + "/in/benchmarks/soma_vetor/soma_vetor.txt";
+        bench_name = "soma_vetor";
         inFile.open(path);
         if(!add_instructions(inFile,instruction_queue,instruct))
-            show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo");
         else
             fila = true;
-    }); 
+        
+        path = base_path + "/in/benchmarks/soma_vetor/memory.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                int i = 0;
+                int value;
+                while(inFile >> value && i < 500)
+                {
+                    memory.Set(i,std::to_string(value));
+                    i++;
+                }
+                for(; i < 500 ; i++)
+                {
+                    memory.Set(i,"0");
+                }
+                inFile.close();
+            }
+
+        path = base_path + "/in/benchmarks/soma_vetor/regs.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                auto reg_gui = reg.at(0);
+                int value,i = 0;
+                while(inFile >> value && i < 32)
+                {
+                    reg_gui.at(i).text(1,std::to_string(value));
+                    i++;
+                }
+                for(; i < 32 ; i++)
+                    reg_gui.at(i).text(1,"0");
+                inFile.close();
+            }
+    });
+
+    bench_sub->append("Multiplicação vetor",[&](menu::item_proxy &ip){
+        string path = base_path + "/in/benchmarks/mult_vetor/mult_vetor.txt";
+        bench_name = "mult_vetor";
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo");
+        else
+            fila = true;
+        
+        path = base_path + "/in/benchmarks/mult_vetor/memory.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                int i = 0;
+                int value;
+                while(inFile >> value && i < 500)
+                {
+                    memory.Set(i,std::to_string(value));
+                    i++;
+                }
+                for(; i < 500 ; i++)
+                {
+                    memory.Set(i,"0");
+                }
+                inFile.close();
+            }
+
+        path = base_path + "/in/benchmarks/mult_vetor/regs.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                auto reg_gui = reg.at(0);
+                int value,i = 0;
+                while(inFile >> value && i < 32)
+                {
+                    reg_gui.at(i).text(1,std::to_string(value));
+                    i++;
+                }
+                for(; i < 32 ; i++)
+                    reg_gui.at(i).text(1,"0");
+                inFile.close();
+            }
+    });
+
+    bench_sub->append("Negatividade",[&](menu::item_proxy &ip){
+        string path = base_path + "/in/benchmarks/negatividade/negatividade.txt";
+        bench_name = "negatividade";
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo");
+        else
+            fila = true;
+        
+        path = base_path + "/in/benchmarks/negatividade/memory.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                int i = 0;
+                int value;
+                while(inFile >> value && i < 500)
+                {
+                    memory.Set(i,std::to_string(value));
+                    i++;
+                }
+                for(; i < 500 ; i++)
+                {
+                    memory.Set(i,"0");
+                }
+                inFile.close();
+            }
+
+        path = base_path + "/in/benchmarks/negatividade/regs.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                auto reg_gui = reg.at(0);
+                int value,i = 0;
+                while(inFile >> value && i < 32)
+                {
+                    reg_gui.at(i).text(1,std::to_string(value));
+                    i++;
+                }
+                for(; i < 32 ; i++)
+                    reg_gui.at(i).text(1,"0");
+                inFile.close();
+            }
+    });
+
+    bench_sub->append("Módulo",[&](menu::item_proxy &ip){
+        string path = base_path + "/in/benchmarks/modulo/modulo.txt";
+        bench_name = "modulo";
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo");
+        else
+            fila = true;
+        
+        path = base_path + "/in/benchmarks/modulo/memory.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                int i = 0;
+                int value;
+                while(inFile >> value && i < 500)
+                {
+                    memory.Set(i,std::to_string(value));
+                    i++;
+                }
+                for(; i < 500 ; i++)
+                {
+                    memory.Set(i,"0");
+                }
+                inFile.close();
+            }
+
+        path = base_path + "/in/benchmarks/modulo/regs.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                auto reg_gui = reg.at(0);
+                int value,i = 0;
+                while(inFile >> value && i < 32)
+                {
+                    reg_gui.at(i).text(1,std::to_string(value));
+                    i++;
+                }
+                for(; i < 32 ; i++)
+                    reg_gui.at(i).text(1,"0");
+                inFile.close();
+            }
+    });
+
+    bench_sub->append("Números Iguais",[&](menu::item_proxy &ip){
+        string path = base_path + "/in/benchmarks/num_iguais/num_iguais.txt";
+        bench_name = "num_iguais";
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo");
+        else
+            fila = true;
+        
+        path = base_path + "/in/benchmarks/num_iguais/memory.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                int i = 0;
+                int value;
+                while(inFile >> value && i < 500)
+                {
+                    memory.Set(i,std::to_string(value));
+                    i++;
+                }
+                for(; i < 500 ; i++)
+                {
+                    memory.Set(i,"0");
+                }
+                inFile.close();
+            }
+
+        path = base_path + "/in/benchmarks/num_iguais/regs.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                auto reg_gui = reg.at(0);
+                int value,i = 0;
+                while(inFile >> value && i < 32)
+                {
+                    reg_gui.at(i).text(1,std::to_string(value));
+                    i++;
+                }
+                for(; i < 32 ; i++)
+                    reg_gui.at(i).text(1,"0");
+                inFile.close();
+            }
+    });
+    
+    bench_sub->append("Números Diferentes",[&](menu::item_proxy &ip){
+        string path = base_path + "/in/benchmarks/num_diferentes/num_diferentes.txt";
+        bench_name = "num_diferentes";
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo");
+        else
+            fila = true;
+        
+        path = base_path + "/in/benchmarks/num_diferentes/memory.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                int i = 0;
+                int value;
+                while(inFile >> value && i < 500)
+                {
+                    memory.Set(i,std::to_string(value));
+                    i++;
+                }
+                for(; i < 500 ; i++)
+                {
+                    memory.Set(i,"0");
+                }
+                inFile.close();
+            }
+
+        path = base_path + "/in/benchmarks/num_diferentes/regs.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                auto reg_gui = reg.at(0);
+                int value,i = 0;
+                while(inFile >> value && i < 32)
+                {
+                    reg_gui.at(i).text(1,std::to_string(value));
+                    i++;
+                }
+                for(; i < 32 ; i++)
+                    reg_gui.at(i).text(1,"0");
+                inFile.close();
+            }
+    });
+
+    bench_sub->append("Soma Quadrados",[&](menu::item_proxy &ip){
+        string path = base_path + "/in/benchmarks/soma_quadrados/soma_quadrados.txt";
+        bench_name = "soma_quadrados";
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo");
+        else
+            fila = true;
+        
+        path = base_path + "/in/benchmarks/soma_quadrados/memory.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                int i = 0;
+                int value;
+                while(inFile >> value && i < 500)
+                {
+                    memory.Set(i,std::to_string(value));
+                    i++;
+                }
+                for(; i < 500 ; i++)
+                {
+                    memory.Set(i,"0");
+                }
+                inFile.close();
+            }
+
+        path = base_path + "/in/benchmarks/soma_quadrados/regs.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                auto reg_gui = reg.at(0);
+                int value,i = 0;
+                while(inFile >> value && i < 32)
+                {
+                    reg_gui.at(i).text(1,std::to_string(value));
+                    i++;
+                }
+                for(; i < 32 ; i++)
+                    reg_gui.at(i).text(1,"0");
+                inFile.close();
+            }
+    });
+
+    bench_sub->append("1 até 77",[&](menu::item_proxy &ip){
+        string path = base_path + "/in/benchmarks/1_77/1_77.txt";
+        bench_name = "1_77";
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo");
+        else
+            fila = true;
+        
+        path = base_path + "/in/benchmarks/1_77/memory.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                int i = 0;
+                int value;
+                while(inFile >> value && i < 500)
+                {
+                    memory.Set(i,std::to_string(value));
+                    i++;
+                }
+                for(; i < 500 ; i++)
+                {
+                    memory.Set(i,"0");
+                }
+                inFile.close();
+            }
+
+        path = base_path + "/in/benchmarks/1_77/regs.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                auto reg_gui = reg.at(0);
+                int value,i = 0;
+                while(inFile >> value && i < 32)
+                {
+                    reg_gui.at(i).text(1,std::to_string(value));
+                    i++;
+                }
+                for(; i < 32 ; i++)
+                    reg_gui.at(i).text(1,"0");
+                inFile.close();
+            }
+    });
+
+    bench_sub->append("Média",[&](menu::item_proxy &ip){
+        string path = base_path + "/in/benchmarks/media/media.txt";
+        bench_name = "media";
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo");
+        else
+            fila = true;
+        
+        path = base_path + "/in/benchmarks/media/memory.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                int i = 0;
+                int value;
+                while(inFile >> value && i < 500)
+                {
+                    memory.Set(i,std::to_string(value));
+                    i++;
+                }
+                for(; i < 500 ; i++)
+                {
+                    memory.Set(i,"0");
+                }
+                inFile.close();
+            }
+
+        path = base_path + "/in/benchmarks/media/regs.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                auto reg_gui = reg.at(0);
+                int value,i = 0;
+                while(inFile >> value && i < 32)
+                {
+                    reg_gui.at(i).text(1,std::to_string(value));
+                    i++;
+                }
+                for(; i < 32 ; i++)
+                    reg_gui.at(i).text(1,"0");
+                inFile.close();
+            }
+    });
+
+    bench_sub->append("Fatorial de 5",[&](menu::item_proxy &ip){
+        string path = base_path + "/in/benchmarks/fatorial5/fatorial5.txt";
+        bench_name = "fatorial5";
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo");
+        else
+            fila = true;
+        
+        path = base_path + "/in/benchmarks/fatorial5/memory.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                int i = 0;
+                int value;
+                while(inFile >> value && i < 500)
+                {
+                    memory.Set(i,std::to_string(value));
+                    i++;
+                }
+                for(; i < 500 ; i++)
+                {
+                    memory.Set(i,"0");
+                }
+                inFile.close();
+            }
+
+        path = base_path + "/in/benchmarks/fatorial5/regs.txt";
+        inFile.open(path);
+            if(!inFile.is_open())
+                show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+            else
+            {
+                auto reg_gui = reg.at(0);
+                int value,i = 0;
+                while(inFile >> value && i < 32)
+                {
+                    reg_gui.at(i).text(1,std::to_string(value));
+                    i++;
+                }
+                for(; i < 32 ; i++)
+                    reg_gui.at(i).text(1,"0");
+                inFile.close();
+            }
+    });
+
+
+
 
     vector<string> columns = {"#","Name","Busy","Op","Vj","Vk","Qj","Qk","A"}; 
     for(unsigned int i = 0 ; i < columns.size() ; i++)

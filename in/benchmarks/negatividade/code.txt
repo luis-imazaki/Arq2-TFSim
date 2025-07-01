@@ -1,0 +1,14 @@
+// Negatividade
+
+r1 = -2
+
+if(r1<0){
+    GOTO END
+}
+else{
+    r2 = -r1;
+    r1 = r2;
+}
+
+END:
+    M[2] = R1

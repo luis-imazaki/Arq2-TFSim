@@ -1,0 +1,9 @@
+r1 = M[0]
+r2 = M[1]
+if(r1=r2){
+    GOTO 3 (DADD R0,R0,R0)
+}else{
+    r3 = 1
+    M[3] = r3
+}
+END
